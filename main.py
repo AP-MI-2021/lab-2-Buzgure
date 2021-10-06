@@ -76,10 +76,28 @@ def test_get_largest_prime_below ():
     assert get_largest_prime_below(1) == None
 test_get_largest_prime_below()
 test_is_leap()
+
+
+def get_base_2(n):
+    '''
+    Converteste un numar dat din baza 10 in baza 2
+    Input:
+    -n: intreg 
+    Output:
+    -base2Number: lista de string-uri
+    '''
+    base2Number = []
+    while n:
+        base2Number.append(str(n%2))
+        n = n // 2
+    base2Number.reverse()
+    return ''.join(base2Number)
+
 def main():
     while True:
         print('1.Cel mai mare numar prim mai mic decat un numar dat.')
         print('2.Afiseaza toti anii bisecti intre doi ani dari')
+        print('3.Conversie baza 10 in baza 2')
         print('x. Exit')
         optiune = input('Alegeti o optiune: ')
         if optiune == '1':
@@ -90,6 +108,9 @@ def main():
             nr1 = int(input('Dati primul an: '))
             nr2 = int(input('Dati al doilea an: '))
             print(f'Anii bisecti din intervalul {nr1} , {nr2} este {get_leap_years(nr1, nr2)}')
+        elif optiune == '3':
+            nr = int(input('Dati un numar: '))
+            print(f'Numarul {nr} in baza 2 este {get_base_2(nr)}')
             
         elif optiune == 'x':
             break
