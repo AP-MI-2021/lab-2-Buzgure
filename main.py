@@ -23,7 +23,7 @@ def get_largest_prime_below(n):
     - cel mai mare numar prim mai mic decat n
     '''
     
-    for i in range (n,2,-1):
+    for i in range (n-1,1,-1):
         check = is_prime(i)
         if check == True:
             return i
@@ -92,7 +92,24 @@ def get_base_2(n):
         n = n // 2
     base2Number.reverse()
     return ''.join(base2Number)
+    
+def test_get_base_2():
+    assert get_base_2(12) == "1100"
+    assert get_base_2(10) == "1010"
+    assert get_base_2(8) == "1000"
+test_get_base_2()
 
+
+def test_get_leap_years():
+    assert get_leap_years(2000, 2010) == [2000, 2004, 2008]
+    assert get_leap_years(2010, 2020) == [2012, 2016, 2020]
+    assert get_leap_years(2020, 2030) == [2020, 2024, 2028]
+    
+    
+    
+    
+    
+test_get_leap_years()
 def main():
     while True:
         print('1.Cel mai mare numar prim mai mic decat un numar dat.')
